@@ -1,0 +1,27 @@
+openai>=1.40.0
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.13
+
+# --- TTS: pick one or all three ---
+pyttsx3>=2.90        # offline robotic fallback (always installs)
+piper-tts>=1.2.0     # offline neural TTS (recommended for CPU users)
+sounddevice>=0.4.6   # audio playback for Piper / OmniVoice / SenseVoice
+soundfile>=0.12      # wav read/write for SenseVoice
+numpy>=1.24
+
+# --- GUI (AERA Agent shell) ---
+PySide6>=6.6
+psutil>=5.9
+
+# --- Optional GPU stack ---
+# Uncomment if you have CUDA / Apple Silicon and want OmniVoice + SenseVoice
+# torch>=2.3
+# torchaudio>=2.3
+# transformers>=4.44
+# funasr>=1.1.0           # SenseVoice STT
+# webrtcvad>=2.0          # better VAD for SenseVoice mic capture
+# cn2an>=0.5              # Chinese number normalization (optional)
+# zhconv>=1.4             # Chinese conversion (optional)
+
+# --- Optional wake-word (~50 MB) ---
+# pvporcupine>=3.0

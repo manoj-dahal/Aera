@@ -1,0 +1,11 @@
+{
+  "nodes": {
+    "user": {
+      "type": "person",
+      "name": "user",
+      "created": "2026-06-27T11:29:23"
+    }
+  },
+  "edges": [],
+  "notes": []
+}

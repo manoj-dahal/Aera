@@ -1,0 +1,74 @@
+{
+  "active_provider": "groq",
+  "providers": {
+    "groq": {
+      "base_url": "https://api.groq.com/openai/v1",
+      "api_key": "YOUR_GROQ_API_KEY",
+      "model": "llama-3.3-70b-versatile"
+    },
+    "google": {
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "api_key": "YOUR_GOOGLE_API_KEY",
+      "model": "gemini-2.0-flash"
+    },
+    "openai": {
+      "base_url": "https://api.openai.com/v1",
+      "api_key": "YOUR_OPENAI_API_KEY",
+      "model": "gpt-4o-mini"
+    },
+    "ollama_local": {
+      "base_url": "http://localhost:11434/v1",
+      "api_key": "ollama",
+      "model": "llama3.2"
+    },
+    "lmstudio_local": {
+      "base_url": "http://localhost:1234/v1",
+      "api_key": "lm-studio",
+      "model": "local-model"
+    }
+  },
+  "system_prompt": "You are a helpful, concise voice assistant with access to tools and a persistent long-term memory graph. Keep replies short and natural since they will be spoken aloud. Avoid markdown, code blocks, and long lists unless asked. Use tools whenever they would give a more accurate or up-to-date answer (weather, time, news, math, search, opening apps, setting timers, etc.). When the user shares personal information ('my name is...', 'I live in...', 'remember that...', 'my dog is called...'), call the `remember` tool to store it as (subject, predicate, object). For free-form things use `remember_note`. Before answering personal questions, optionally call `recall` to look the user up. When the user says 'forget...' call `forget`. Never invent tool results.",
+  "voice": {
+    "engine": "pyttsx3",
+    "_engine_options": ["pyttsx3", "piper", "omnivoice"],
+    "rate": 180,
+    "volume": 1.0,
+    "voice_index": 0,
+    "model": "en_US-lessac-medium",
+    "_piper_voices": [
+      "en_US-lessac-medium", "en_US-amy-medium", "en_US-ryan-high",
+      "en_GB-alan-medium", "en_GB-jenny_dioco-medium",
+      "es_ES-davefx-medium", "fr_FR-siwis-medium", "de_DE-thorsten-medium",
+      "ja_JP-takumi-medium", "zh_CN-huayan-medium"
+    ],
+    "noise_scale": 0.667,
+    "noise_w_scale": 0.8,
+    "use_cuda": false,
+    "model_id": "k2-fsa/OmniVoice-v0",
+    "device": "auto",
+    "language": "en",
+    "ref_audio": "",
+    "ref_text": "",
+    "voice_design": "",
+    "num_step": 32,
+    "guidance_scale": 2.0
+  },
+  "speech": {
+    "engine": "google",
+    "_engine_options": ["google", "sensevoice"],
+    "language": "en-US",
+    "timeout": 5,
+    "phrase_time_limit": 15,
+    "energy_threshold": 300,
+    "pause_threshold": 0.8,
+    "device": "auto",
+    "vad_silence_ms": 700,
+    "max_record_s": 15
+  },
+  "wake": {
+    "enabled": false,
+    "phrase": "hey aera",
+    "access_key": ""
+  },
+  "exit_phrases": ["exit", "quit", "goodbye", "stop assistant"]
+}

@@ -34,12 +34,12 @@ try:
     import numpy as np
     import sounddevice as sd
     import soundfile as sf
-except ImportError:
+except Exception:
     np = sd = sf = None
 
 try:
     import webrtcvad
-except ImportError:
+except Exception:
     webrtcvad = None
 
 # Stripped at module init for speed

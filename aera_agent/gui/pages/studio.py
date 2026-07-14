@@ -24,7 +24,7 @@ try:
     import numpy as np
     import sounddevice as sd
     import soundfile as sf
-except ImportError:
+except Exception:
     np = sd = sf = None
 
 from ...theme import (

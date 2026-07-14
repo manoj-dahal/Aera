@@ -42,11 +42,11 @@ from pathlib import Path
 # so importing this module is cheap even when the user picks a different TTS.
 try:
     import numpy as np
-except ImportError:
+except Exception:
     np = None
 try:
     import sounddevice as sd
-except ImportError:
+except Exception:
     sd = None
 
 

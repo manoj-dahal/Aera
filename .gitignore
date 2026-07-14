@@ -1,0 +1,27 @@
+# build artifacts
+build/
+dist/
+# spec files at root (PyInstaller generates AERA.spec temp – ignore)
+AERA.spec
+/*.spec
+# but keep our checked-in specs in build_tools/
+!build_tools/*.spec
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+aera_agent.egg-info/
+.eggs/
+.venv/
+venv/
+# runtime data (keep data/memory.json minimal)
+data/*.json
+!data/memory.json
+voices/*.onnx
+voices/*.wav
+voices/ecapa/
+workspace/
+# IDE
+.vscode/
+.idea/
+*.swp

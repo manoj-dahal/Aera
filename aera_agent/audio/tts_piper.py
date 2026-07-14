@@ -26,14 +26,14 @@ from ..paths import VOICES_DIR
 
 try:
     from piper import PiperVoice, SynthesisConfig
-except ImportError:
+except Exception:
     PiperVoice = None
     SynthesisConfig = None
 
 try:
     import sounddevice as sd
     import numpy as np
-except ImportError:
+except Exception:
     sd = None
     np = None
 

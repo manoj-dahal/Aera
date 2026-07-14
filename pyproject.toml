@@ -13,14 +13,17 @@ authors     = [{ name = "AERA Agent contributors" }]
 
 dependencies = [
     "openai>=1.40",
-    "SpeechRecognition>=3.10",
-    "PyAudio>=0.2.13",
     "pyttsx3>=2.90",
     "PySide6>=6.6",
     "psutil>=5.9",
 ]
 
+# Core audio (optional at install time for headless servers)
+# PyAudio needs portaudio19-dev + python3-dev headers
+# SpeechRecognition is pure-python but needs PyAudio for mic
+
 [project.optional-dependencies]
+audio      = ["SpeechRecognition>=3.10", "PyAudio>=0.2.13"]
 piper      = ["piper-tts>=1.2", "sounddevice>=0.4", "numpy>=1.24"]
 omnivoice  = ["torch>=2.3", "torchaudio>=2.3", "transformers>=4.44",
               "sounddevice>=0.4", "numpy>=1.24"]

@@ -1,0 +1,23 @@
+# build artifacts
+build/
+dist/
+*.spec
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+aera_agent.egg-info/
+.eggs/
+.venv/
+venv/
+# runtime data (keep data/memory.json minimal)
+data/*.json
+!data/memory.json
+voices/*.onnx
+voices/*.wav
+voices/ecapa/
+workspace/
+# IDE
+.vscode/
+.idea/
+*.swp

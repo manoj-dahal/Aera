@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WiX Toolset source for AERA Agent MSI – Windows Installer MSI package -->
+<!-- Build: candle aera.wxs -dVersion=0.0.1 -dSourceDir=..\..\dist\AERA -out aera.wixobj -->
+<!--        light aera.wixobj -out ..\..\dist\AERA-0.0.1.msi -->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="AERA Agent" Language="1033" Version="$(var.Version)" Manufacturer="AERA" UpgradeCode="A1B2C3D4-E5F6-47G8-H9I0-J1K2L3M4N5O6">
+    <Package InstallerVersion="400" Compressed="yes" InstallScope="perMachine" Description="AERA Agent Voice Assistant – 46 tools, memory, voice cloning" Comments="Voice AI Assistant" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version is already installed." />
+    <Media Id="1" Cabinet="AERA.cab" EmbedCab="yes" />
+    <Feature Id="ProductFeature" Title="AERA Agent" Level="1">
+      <ComponentGroupRef Id="AeraFiles" />
+    </Feature>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="AERADIR" Name="AERA Agent">
+          <Directory Id="INSTALLFOLDER" Name="AERA" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="AERA Agent"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+    <!-- For production, run: heat dir $(var.SourceDir) -cg AeraFiles -dr INSTALLFOLDER -gg -srd -out files.wxs -->
+    <!-- Then replace this placeholder group with generated one -->
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="AeraExecutable" Guid="*">
+        <File Id="AeraExe" Source="$(var.SourceDir)/AERA.exe" KeyPath="yes">
+          <Shortcut Id="StartMenuShortcut" Directory="ApplicationProgramsFolder" Name="AERA Agent" WorkingDirectory="INSTALLFOLDER" Icon="AeraIcon.exe" />
+          <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Name="AERA Agent" WorkingDirectory="INSTALLFOLDER" Icon="AeraIcon.exe" />
+        </File>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="AERADIR">
+      <ComponentGroup Id="AeraFiles" Directory="INSTALLFOLDER">
+        <Component Id="CMP_AeraFolder" Guid="*">
+          <File Id="Dummy" Source="$(var.SourceDir)/AERA.exe" />
+        </Component>
+      </ComponentGroup>
+    </DirectoryRef>
+
+    <Icon Id="AeraIcon.exe" SourceFile="..\..\assets\aera_icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="AeraIcon.exe" />
+  </Product>
+</Wix>
